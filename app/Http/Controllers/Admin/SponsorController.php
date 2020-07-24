@@ -92,7 +92,7 @@ class SponsorController extends Controller
             $file = $request->file('logo');
             $dateTime = date('Ymd_His');
             $filename = $dateTime . '-' . $file->getClientOriginalName();
-            $savePath = 'assets/img/uploads/sponsor/';
+            $savePath = 'assets/uploads/sponsor/';
 
             $data['img'] = $filename;
             $sponsor->logo = $data['img'];

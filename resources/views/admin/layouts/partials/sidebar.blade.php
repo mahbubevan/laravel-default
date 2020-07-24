@@ -52,7 +52,7 @@
                   <li><a><i class="fa fa-table"></i> Settings <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="tables.html">General Settings</a></li>
-                      <li><a href="tables_dynamic.html">Section</a></li>
+                      <li><a href="{{route('admin.section')}}">Section</a></li>
                     </ul>
                   </li>
                 </ul>

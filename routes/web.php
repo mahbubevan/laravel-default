@@ -14,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PublicController@index');
+Route::get('/pricing_plan', 'PublicController@view')->name('ticket.view');
+Route::get('/buy/{id?}', 'PublicController@buyForm')->name('ticket.buy');
+Route::post('/buy', 'PublicController@booking')->name('ticket.book');
+Route::get('/become_sponsor', 'PublicController@sponsor')->name('become.sponsor');
+Route::post('/become_sponsor', 'PublicController@request_sponsor')->name('sponsor.request');
+
+Route::get('/blog/{id}', 'PublicController@blog')->name('blog.show');
 
 Auth::routes();
 
@@ -164,5 +169,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('/trashed/sponsor', 'SponsorController@trashed')->name('sponsor.trashed');
         Route::get('/retrieve/sponsor/{id}', 'SponsorController@retrieve')->name('sponsor.retrieve');
         Route::get('/permanent_delete/sponsor/{id}', 'SponsorController@permanent_delete')->name('sponsor.permanent.delete');
+
+        Route::get('/section', 'SectionController@index')->name('section');
+        Route::post('/section/store', 'SectionController@store')->name('section.store');
     });
 });
