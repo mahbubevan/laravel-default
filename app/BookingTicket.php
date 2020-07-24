@@ -13,7 +13,7 @@ class BookingTicket extends Model
     protected $fillable = [
         'name', 'phone', 'email',
         'quantity', 'vouchar_id', 'ticket_category_id',
-        'seat_numbers',
+        'seat_numbers', 'price',
     ];
 
     public function category()
