@@ -1,9 +1,9 @@
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="{{auth()->guard('admin')->user()->img}}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2>{{auth()->guard('admin')->user()->name}}</h2>
               </div>
             </div>

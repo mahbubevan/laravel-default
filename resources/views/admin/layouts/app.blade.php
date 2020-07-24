@@ -28,6 +28,12 @@
 
     <!-- Custom Theme Style -->
     <link href="{{asset('assets/templates/build/css/custom.min.css')}}" rel="stylesheet">
+
+    {{-- font awesome --}}
+  <script src="https://kit.fontawesome.com/bda171beb6.js" crossorigin="anonymous"></script>
+
+  @stack('external-css')
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   </head>
 
   <body class="nav-md">
@@ -109,9 +115,15 @@
     <!-- bootstrap-daterangepicker -->
     <script src="{{asset('assets/templates/vendors/moment/min/moment.min.js')}}"></script>
     <script src="{{asset('assets/templates/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-
+    <script src="{{asset('assets/templates/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js')}}"></script>
     <!-- Custom Theme Scripts -->
     <script src="{{asset('assets/templates/build/js/custom.min.js')}}"></script>
 
+    @stack('external-js')
+
+
+    @include('sweet-alert.error')
+    @include('sweet-alert.errors')
+    @include('sweet-alert.success')
   </body>
 </html>
