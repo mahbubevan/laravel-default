@@ -21,14 +21,14 @@
               <div class="col-md-12 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Available<small>Tickets</small></h2>
+                    <h2>Available<small>Categories</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{route('admin.ticket.create')}}">Create New</a>
+                            <a class="dropdown-item" href="{{route('admin.ticket.category.create')}}">Create New</a>
                             <a class="dropdown-item" href="#">View Trashed</a>
                           </div>
                       </li>
@@ -49,9 +49,12 @@
                             <th>
                               <input type="checkbox" id="check-all" class="flat">
                             </th>
-                            <th class="column-title">Category</th>
-                            <th class="column-title">Seat Number</th>
-                            <th class="column-title">Status</th>
+                            <th class="column-title">TITLE</th>
+                            <th class="column-title">ICON </th>
+                            <th class="column-title">PRICE </th>
+                            <th class="column-title">LIMIT</th>
+                            <th class="column-title">DETAILS</th>
+                            <th class="column-title">Features</th>
                             <th class="column-title no-link last"><span class="nobr">Action</span>
                             </th>
                             <th class="bulk-actions" colspan="7">
@@ -61,29 +64,33 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($tickets as $ticket)
+                            @foreach ($categories as $category)
                                 <tr>
-                                    <td> {{$ticket->id}} </td>
-                                    <td> {{$ticket->category->title}} </td>
-                                    <td> {{$ticket->seat_number}} </td>
-                                    @if ($slot->status==\App\Ticket::NOT_AVAILABLE)
-                                        <td>
-                                            <span class="text-success">Booked</span>
-                                        </td>
-                                        @else
-                                        <td>
-                                            <span class="text-warning">Free </span>
-                                        </td>
-                                    @endif
+                                    <td> {{$category->id}} </td>
+                                    <td> {{$category->title}} </td>
+                                    <td>
+                                        <img src="{{asset('/assets/uploads/ticket/'.$category->img)}}"
+                                            class="img-fluid img-thumbnail"
+                                            width="100px"
+                                            height="100px" alt="">
+                                    </td>
+                                    <td> {{$category->price}} </td>
+                                    <td> {{$category->limit}} </td>
+                                    <td> {!!$category->details!!} </td>
+                                    <td>
+                                        @foreach (json_decode($category->features, true) as $feature)
+                                            <li>{{$feature}}</li>
+                                        @endforeach
+                                    </td>
                                     <td>
                                 <span>
-                                    <a href="{{route('admin.ticket.edit',$ticket->id)}}" class="btn btn-sm btn-success">
-                                        <i class="fas fa-edit"></i>
+                                    <a href="{{route('admin.ticket.category.retrieve',$category->id)}}" class="btn btn-sm btn-warning" title="Resotre Item" >
+                                        <i class="fas fa-trash-restore"></i>
                                     </a>
                                 </span>
                                 <span>
-                                    <a href="{{route('admin.ticket.destroy',$ticket->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">
-                                        <i class="far fa-trash-alt"></i>
+                                    <a href="{{route('admin.ticket.category.permanent.delete',$category->id)}}" class="btn btn-sm btn-danger" title="Permanent Delete" onclick="return confirm('Are you sure to perform this deletion???')" >
+                                        <i class="fas fa-minus-circle"></i>
                                     </a>
                                 </span>
                                     </td>

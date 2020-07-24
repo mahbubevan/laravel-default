@@ -18,4 +18,9 @@ class Ticket extends Model
         'ticket_category_id', 'seat_number',
         'status',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(TicketCategory::class, 'ticket_category_id');
+    }
 }

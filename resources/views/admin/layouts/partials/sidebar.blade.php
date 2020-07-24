@@ -31,13 +31,13 @@
                   </li>
                 <li><a><i class="fa fa-desktop"></i> Ticket Management <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{route('admin.day.create')}}">Add New Ticket (Seat) </a></li>
-                      <li><a href="{{route('admin.slot.create')}}">View All Tickets</a></li>
+                      <li><a href="{{route('admin.ticket.create')}}">Add New Ticket (Seat) </a></li>
+                      <li><a href="{{route('admin.ticket.index')}}">View All Tickets</a></li>
                       <li><a href="{{route('admin.ticket.category.create')}}">Add New Category</a></li>
                       <li><a href="{{route('admin.ticket.category.index')}}">View All Categories</a></li>
                       <li><a class="disabled" href="#">Make A Custom Booking </a></li>
                       <li><a href="{{route('admin.slots.index')}}">View Bookings</a></li>
-                      <li><a href="{{route('admin.day.trashed')}}">Trashed</a></li>
+                      <li><a href="{{route('admin.ticket.category.trashed')}}">Trashed Category</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> Settings <span class="fa fa-chevron-down"></span></a>

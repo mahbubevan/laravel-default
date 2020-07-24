@@ -83,21 +83,16 @@
                                         @endforeach
                                     </td>
                                     <td>
-                                                {{-- <span>
-                                    <a href="{{route('admin.category.show',$category->id)}}" class="btn btn-sm btn-info">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                </span>
                                 <span>
-                                    <a href="{{route('admin.category.edit',$category->id)}}" class="btn btn-sm btn-success">
+                                    <a href="{{route('admin.ticket.category.edit',$category->id)}}" class="btn btn-sm btn-success">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 </span>
                                 <span>
-                                    <a href="{{route('admin.category.delete',$category->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">
+                                    <a href="{{route('admin.ticket.category.destroy',$category->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">
                                         <i class="far fa-trash-alt"></i>
                                     </a>
-                                </span> --}}
+                                </span>
                                     </td>
                                 </tr>
                             @endforeach

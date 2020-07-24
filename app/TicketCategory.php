@@ -19,4 +19,9 @@ class TicketCategory extends Model
     protected $casts = [
         'features' => 'array',
     ];
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class, 'ticket_category_id');
+    }
 }

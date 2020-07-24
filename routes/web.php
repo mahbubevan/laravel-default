@@ -118,15 +118,27 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
         Route::namespace('Ticket')->prefix('ticket')->name('ticket.')->group(function () {
 
+            // Ticket Category
+
             Route::get('/category', 'CategoryController@index')->name('category.index');
             Route::get('/category/create', 'CategoryController@create')->name('category.create');
             Route::post('/category/store', 'CategoryController@store')->name('category.store');
 
+            Route::get('/category/{id}/edit', 'CategoryController@edit')->name('category.edit');
+            Route::post('/category/{id}/update', 'CategoryController@update')->name('category.update');
+            Route::get('/category/{id}/delete', 'CategoryController@destroy')->name('category.destroy');
 
             //Trashed & Resotre
-            // Route::get('/trashed/blog', 'BlogController@trashed')->name('trashed');
-            // Route::get('/retrieve/blog/{id}', 'BlogController@retrieve')->name('retrieve');
-            // Route::get('/permanent_delete/blog/{id}', 'BlogController@permanent_delete')->name('permanent.delete');
+            Route::get('/trashed/category', 'CategoryController@trashed')->name('category.trashed');
+            Route::get('/retrieve/category/{id}', 'CategoryController@retrieve')->name('category.retrieve');
+            Route::get('/permanent_delete/category/{id}', 'CategoryController@permanent_delete')->name('category.permanent.delete');
+
+            // Tickets //
+            Route::get('/', 'TicketController@index')->name('index');
+            Route::get('/create', 'TicketController@create')->name('create');
+            Route::post('/store', 'TicketController@store')->name('store');
+            Route::get('/{ticket}/edit', 'TicketController@edit')->name('edit');
+            Route::get('/{id}/delete', 'TicketController@destroy')->name('destroy');
         });
     });
 });
