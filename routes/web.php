@@ -145,5 +145,24 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
             Route::get('/booking/create', 'BookingController@create')->name('booking.create');
             Route::post('/booking/store', 'BookingController@store')->name('booking.store');
         });
+
+
+        Route::get('/sponsor', 'SponsorController@index')->name('sponsor.index');
+        Route::get('/sponsor/create', 'SponsorController@create')->name('sponsor.create');
+        Route::post('/sponsor/store', 'SponsorController@store')->name('sponsor.store');
+        Route::get('/sponsor/{sponsor}/edit', 'SponsorController@edit')->name('sponsor.edit');
+        Route::put('/sponsor/{sponsor}/', 'SponsorController@update')->name('sponsor.update');
+        Route::get('/sponsor/{sponsor}/delete', 'SponsorController@destroy')->name('sponsor.destroy');
+
+        Route::get('/sponsor/category/create', 'SponsorController@category_create')->name('sponsor.category.create');
+        Route::post('/sponsor/category/store', 'SponsorController@category_store')->name('sponsor.category.store');
+        Route::get('/sponsor/category', 'SponsorController@category_index')->name('sponsor.category.index');
+        Route::get('/sponsor/category/{id}/delete', 'SponsorController@category_destroy')->name('sponsor.category.destroy');
+        Route::get('/sponsor/category/request', 'SponsorController@request_index')->name('sponsor.request.index');
+
+        //Trashed & Resotre
+        Route::get('/trashed/sponsor', 'SponsorController@trashed')->name('sponsor.trashed');
+        Route::get('/retrieve/sponsor/{id}', 'SponsorController@retrieve')->name('sponsor.retrieve');
+        Route::get('/permanent_delete/sponsor/{id}', 'SponsorController@permanent_delete')->name('sponsor.permanent.delete');
     });
 });

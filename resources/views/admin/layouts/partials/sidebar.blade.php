@@ -40,6 +40,15 @@
                       <li><a href="{{route('admin.ticket.category.trashed')}}">Trashed Category</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-desktop"></i> Sponsor Management <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{route('admin.sponsor.create')}}">Add New Sponsor </a></li>
+                      <li><a href="{{route('admin.sponsor.index')}}">View All Sponsors</a></li>
+                      <li><a href="{{route('admin.sponsor.category.create')}}">Add New Category</a></li>
+                      <li><a href="{{route('admin.sponsor.category.index')}}">View All Categories</a></li>
+                      <li><a href="{{route('admin.sponsor.trashed')}}">Trashed Sponsors</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-table"></i> Settings <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="tables.html">General Settings</a></li>
