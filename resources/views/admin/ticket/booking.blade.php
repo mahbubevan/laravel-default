@@ -21,7 +21,7 @@
               <div class="col-md-12 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Total<small>Tickets -- {{$count}} </small></h2>
+                    <h2>Total<small>Bookings -- {{$count}} </small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -49,9 +49,13 @@
                             <th>
                               <input type="checkbox" id="check-all" class="flat">
                             </th>
+                            <th class="column-title">Name</th>
+                            <th class="column-title">Phone</th>
+                            <th class="column-title">Email</th>
+                            <th class="column-title">Quantity</th>
+                            <th class="column-title">Vouchar ID</th>
+                            <th class="column-title">Seat Numbers</th>
                             <th class="column-title">Category</th>
-                            <th class="column-title">Seat Number</th>
-                            <th class="column-title">Status</th>
                             </th>
                             <th class="bulk-actions" colspan="7">
                               <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
@@ -60,27 +64,22 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($tickets as $ticket)
+                            @foreach ($bookings as $booking)
                                 <tr>
-                                    <td> {{$ticket->id}} </td>
-                                    <td> {{$ticket->category->title}} </td>
-                                    <td> {{$ticket->seat_number}} </td>
-                                    @if ($ticket->status==\App\Ticket::NOT_AVAILABLE)
-                                        <td>
-                                            <span class="text-success">Booked</span>
-                                        </td>
-                                        @else
-                                        <td>
-                                            <span class="text-warning">Free </span>
-                                        </td>
-                                    @endif
-
+                                    <td> {{$booking->id}} </td>
+                                    <td> {{$booking->name}} </td>
+                                    <td> {{$booking->phone}} </td>
+                                    <td> {{$booking->email}} </td>
+                                    <td> {{$booking->quantity}} </td>
+                                    <td> {{$booking->vouchar_id}} </td>
+                                    <td> {{$booking->seat_numbers}} </td>
+                                    <td> {{$booking->category->title}} </td>
                                 </tr>
                             @endforeach
                         </tbody>
                       </table>
                       <div>
-                          {{$tickets->links()}}
+                          {{-- {{$tickets->links()}} --}}
                       </div>
                     </div>
 

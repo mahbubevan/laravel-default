@@ -35,8 +35,8 @@
                       <li><a href="{{route('admin.ticket.index')}}">View All Tickets</a></li>
                       <li><a href="{{route('admin.ticket.category.create')}}">Add New Category</a></li>
                       <li><a href="{{route('admin.ticket.category.index')}}">View All Categories</a></li>
-                      <li><a class="disabled" href="#">Make A Custom Booking </a></li>
-                      <li><a href="{{route('admin.slots.index')}}">View Bookings</a></li>
+                      <li><a class="disabled" href="{{route('admin.ticket.booking.create')}}">Make A Custom Booking </a></li>
+                      <li><a href="{{route('admin.ticket.booking.index')}}">View Bookings</a></li>
                       <li><a href="{{route('admin.ticket.category.trashed')}}">Trashed Category</a></li>
                     </ul>
                   </li>

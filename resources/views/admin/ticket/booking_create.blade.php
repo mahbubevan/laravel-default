@@ -15,7 +15,7 @@
               <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Ticket <small>Create</small></h2>
+                    <h2>Ticket <small>Booking</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -40,7 +40,7 @@
 
 								<div class="x_content">
 									<br />
-									<form method="POST" action="{{route('admin.ticket.store')}}" class="form-horizontal form-label-left">
+									<form method="POST" action="{{route('admin.ticket.booking.store')}}" class="form-horizontal form-label-left">
                                         @csrf
 										<div class="form-group row">
 											<label class="control-label col-md-3 col-sm-3 ">Select Category</label>
@@ -57,7 +57,25 @@
 											<div class="col-md-4 col-sm-4">
 												<input type="number" name="quantity" class="form-control">
 											</div>
-										</div>
+                                        </div>
+                                        <div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3 ">Name</label>
+											<div class="col-md-4 col-sm-4">
+												<input type="text" name="name" class="form-control">
+											</div>
+                                        </div>
+                                        <div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3 ">Phone</label>
+											<div class="col-md-4 col-sm-4">
+												<input type="text" name="phone" class="form-control">
+											</div>
+                                        </div>
+                                        <div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3 ">Email</label>
+											<div class="col-md-4 col-sm-4">
+												<input type="email" name="email" class="form-control">
+											</div>
+                                        </div>
 										<div class="ln_solid"></div>
 										<div class="form-group">
 											<div class="col-md-9 col-sm-9  offset-md-3">

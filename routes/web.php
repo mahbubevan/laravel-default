@@ -137,8 +137,13 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
             Route::get('/', 'TicketController@index')->name('index');
             Route::get('/create', 'TicketController@create')->name('create');
             Route::post('/store', 'TicketController@store')->name('store');
-            Route::get('/{ticket}/edit', 'TicketController@edit')->name('edit');
-            Route::get('/{id}/delete', 'TicketController@destroy')->name('destroy');
+            // Route::get('/{ticket}/edit', 'TicketController@edit')->name('edit');
+            Route::get('/delete', 'TicketController@destroy')->name('destroy');
+
+            // Admin Booking Tickets
+            Route::get('/booking', 'BookingController@index')->name('booking.index');
+            Route::get('/booking/create', 'BookingController@create')->name('booking.create');
+            Route::post('/booking/store', 'BookingController@store')->name('booking.store');
         });
     });
 });

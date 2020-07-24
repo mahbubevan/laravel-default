@@ -15,4 +15,9 @@ class BookingTicket extends Model
         'quantity', 'vouchar_id', 'ticket_category_id',
         'seat_numbers',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(TicketCategory::class, 'ticket_category_id');
+    }
 }
